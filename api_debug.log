@@ -1,0 +1,21 @@
+2025-08-02 12:56:15 | GET | IP: 192.168.234.86 | Content-Type: not set | User-Agent: ESP32HTTPClient | Raw Input: 
+2025-08-02 12:56:19 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:56:26 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:56:32 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:56:39 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:56:46 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:56:53 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:56:59 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:57:06 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:57:12 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:57:32 | GET | IP: 192.168.234.86 | Content-Type: not set | User-Agent: ESP32HTTPClient | Raw Input: 
+2025-08-02 12:57:35 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:57:42 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:57:49 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:57:53 | GET | IP: 192.168.234.167 | Content-Type: not set | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 | Raw Input: 
+2025-08-02 12:57:56 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:58:03 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:58:09 | GET | IP: 192.168.234.167 | Content-Type: not set | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 | Raw Input: 
+2025-08-02 12:58:10 | GET | IP: 192.168.234.167 | Content-Type: not set | User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 | Raw Input: 
+2025-08-02 12:58:10 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
+2025-08-02 12:58:17 | POST | IP: 192.168.234.86 | Content-Type: application/x-www-form-urlencoded | User-Agent: ESP32HTTPClient | Raw Input: action=add_data&jarak=0.00&flow=0.13&status=OFF
