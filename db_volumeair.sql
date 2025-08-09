@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2025 pada 17.11
+-- Waktu pembuatan: 09 Agu 2025 pada 10.28
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -24,214 +24,176 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `log_data_sensor`
+-- Struktur dari tabel `daily_water_summary`
 --
 
-CREATE TABLE `log_data_sensor` (
+CREATE TABLE `daily_water_summary` (
   `id` int(11) NOT NULL,
-  `jarak_cm` decimal(6,2) NOT NULL COMMENT 'Jarak dalam centimeter',
-  `flow_rate` decimal(8,2) NOT NULL COMMENT 'Flow rate dalam L/min',
-  `status_kran` enum('ON','OFF','STANDBY') NOT NULL COMMENT 'Status keran air',
+  `report_date` date NOT NULL,
+  `subuh_water` decimal(15,3) DEFAULT 0.000 COMMENT 'Air digunakan waktu Subuh (04:00-06:00)',
+  `dzuhur_water` decimal(15,3) DEFAULT 0.000 COMMENT 'Air digunakan waktu Dzuhur (12:00-14:00)',
+  `ashar_water` decimal(15,3) DEFAULT 0.000 COMMENT 'Air digunakan waktu Ashar (15:30-17:30)',
+  `maghrib_water` decimal(15,3) DEFAULT 0.000 COMMENT 'Air digunakan waktu Maghrib (18:00-20:00)',
+  `isya_water` decimal(15,3) DEFAULT 0.000 COMMENT 'Air digunakan waktu Isya (19:00-21:00)',
+  `total_daily_water` decimal(15,3) DEFAULT 0.000 COMMENT 'Total air harian dari 5 waktu shalat',
+  `non_shalat_water` decimal(15,3) DEFAULT 0.000 COMMENT 'Air digunakan di luar jadwal shalat',
+  `grand_total_water` decimal(15,3) DEFAULT 0.000 COMMENT 'Total air harian keseluruhan',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `log_data_sensor`
+-- Dumping data untuk tabel `daily_water_summary`
 --
 
-INSERT INTO `log_data_sensor` (`id`, `jarak_cm`, `flow_rate`, `status_kran`, `created_at`, `updated_at`) VALUES
-(1, '0.00', '0.13', 'OFF', '2025-08-02 10:30:15', '2025-08-02 10:30:15'),
-(2, '0.00', '0.13', 'OFF', '2025-08-02 10:30:17', '2025-08-02 10:30:17'),
-(3, '0.00', '0.13', 'OFF', '2025-08-02 10:30:24', '2025-08-02 10:30:24'),
-(4, '0.00', '0.13', 'OFF', '2025-08-02 10:30:25', '2025-08-02 10:30:25'),
-(5, '0.00', '0.13', 'OFF', '2025-08-02 10:30:31', '2025-08-02 10:30:31'),
-(6, '0.00', '0.13', 'OFF', '2025-08-02 10:30:33', '2025-08-02 10:30:33'),
-(7, '0.00', '0.13', 'OFF', '2025-08-02 10:30:40', '2025-08-02 10:30:40'),
-(8, '0.00', '0.13', 'OFF', '2025-08-02 10:30:41', '2025-08-02 10:30:41'),
-(9, '0.00', '0.13', 'OFF', '2025-08-02 10:30:48', '2025-08-02 10:30:48'),
-(10, '0.00', '0.13', 'OFF', '2025-08-02 10:30:49', '2025-08-02 10:30:49'),
-(11, '0.00', '0.13', 'OFF', '2025-08-02 10:30:56', '2025-08-02 10:30:56'),
-(12, '0.00', '0.13', 'OFF', '2025-08-02 10:30:57', '2025-08-02 10:30:57'),
-(13, '0.00', '0.13', 'OFF', '2025-08-02 10:31:04', '2025-08-02 10:31:04'),
-(14, '0.00', '0.13', 'OFF', '2025-08-02 10:31:05', '2025-08-02 10:31:05'),
-(15, '0.00', '0.13', 'OFF', '2025-08-02 10:31:12', '2025-08-02 10:31:12'),
-(16, '0.00', '0.13', 'OFF', '2025-08-02 10:31:14', '2025-08-02 10:31:14'),
-(17, '0.00', '0.13', 'OFF', '2025-08-02 10:31:20', '2025-08-02 10:31:20'),
-(18, '0.00', '0.13', 'OFF', '2025-08-02 10:31:21', '2025-08-02 10:31:21'),
-(19, '0.00', '0.13', 'OFF', '2025-08-02 10:31:28', '2025-08-02 10:31:28'),
-(20, '0.00', '0.13', 'OFF', '2025-08-02 10:31:29', '2025-08-02 10:31:29'),
-(21, '0.00', '0.13', 'OFF', '2025-08-02 10:31:36', '2025-08-02 10:31:36'),
-(22, '0.00', '0.13', 'OFF', '2025-08-02 10:31:37', '2025-08-02 10:31:37'),
-(23, '0.00', '0.13', 'OFF', '2025-08-02 10:31:44', '2025-08-02 10:31:44'),
-(24, '0.00', '0.13', 'OFF', '2025-08-02 10:31:45', '2025-08-02 10:31:45'),
-(25, '0.00', '0.13', 'OFF', '2025-08-02 10:31:52', '2025-08-02 10:31:52'),
-(26, '0.00', '0.13', 'OFF', '2025-08-02 10:31:53', '2025-08-02 10:31:53'),
-(27, '0.00', '0.13', 'OFF', '2025-08-02 10:31:59', '2025-08-02 10:31:59'),
-(28, '0.00', '0.13', 'OFF', '2025-08-02 10:32:00', '2025-08-02 10:32:00'),
-(29, '0.00', '0.13', 'OFF', '2025-08-02 10:32:07', '2025-08-02 10:32:07'),
-(30, '0.00', '0.13', 'OFF', '2025-08-02 10:32:08', '2025-08-02 10:32:08'),
-(31, '0.00', '0.13', 'OFF', '2025-08-02 10:32:14', '2025-08-02 10:32:14'),
-(32, '0.00', '0.13', 'OFF', '2025-08-02 10:32:16', '2025-08-02 10:32:16'),
-(33, '0.00', '0.13', 'OFF', '2025-08-02 10:32:22', '2025-08-02 10:32:22'),
-(34, '0.00', '0.13', 'OFF', '2025-08-02 10:32:23', '2025-08-02 10:32:23'),
-(35, '0.00', '0.13', 'OFF', '2025-08-02 10:32:30', '2025-08-02 10:32:30'),
-(36, '0.00', '0.13', 'OFF', '2025-08-02 10:32:32', '2025-08-02 10:32:32'),
-(37, '0.00', '0.13', 'OFF', '2025-08-02 10:32:38', '2025-08-02 10:32:38'),
-(38, '0.00', '0.13', 'OFF', '2025-08-02 10:32:39', '2025-08-02 10:32:39'),
-(39, '0.00', '0.13', 'OFF', '2025-08-02 10:32:46', '2025-08-02 10:32:46'),
-(40, '0.00', '0.13', 'OFF', '2025-08-02 10:32:47', '2025-08-02 10:32:47'),
-(41, '0.00', '0.13', 'OFF', '2025-08-02 10:32:54', '2025-08-02 10:32:54'),
-(42, '0.00', '0.13', 'OFF', '2025-08-02 10:32:55', '2025-08-02 10:32:55'),
-(43, '0.00', '0.13', 'OFF', '2025-08-02 10:33:24', '2025-08-02 10:33:24'),
-(44, '0.00', '0.13', 'OFF', '2025-08-02 10:33:25', '2025-08-02 10:33:25'),
-(45, '0.00', '0.13', 'OFF', '2025-08-02 10:33:32', '2025-08-02 10:33:32'),
-(46, '0.00', '0.13', 'OFF', '2025-08-02 10:33:33', '2025-08-02 10:33:33'),
-(47, '0.00', '0.13', 'OFF', '2025-08-02 10:33:40', '2025-08-02 10:33:40'),
-(48, '0.00', '0.13', 'OFF', '2025-08-02 10:33:41', '2025-08-02 10:33:41'),
-(49, '0.00', '0.13', 'OFF', '2025-08-02 10:33:48', '2025-08-02 10:33:48'),
-(50, '0.00', '0.13', 'OFF', '2025-08-02 10:33:49', '2025-08-02 10:33:49'),
-(51, '0.00', '0.13', 'OFF', '2025-08-02 10:33:56', '2025-08-02 10:33:56'),
-(52, '0.00', '0.13', 'OFF', '2025-08-02 10:33:58', '2025-08-02 10:33:58'),
-(53, '0.00', '0.13', 'OFF', '2025-08-02 10:34:04', '2025-08-02 10:34:04'),
-(54, '0.00', '0.13', 'OFF', '2025-08-02 10:34:06', '2025-08-02 10:34:06'),
-(55, '0.00', '0.13', 'OFF', '2025-08-02 10:34:12', '2025-08-02 10:34:12'),
-(56, '0.00', '0.13', 'OFF', '2025-08-02 10:34:14', '2025-08-02 10:34:14'),
-(57, '0.00', '0.13', 'OFF', '2025-08-02 10:34:20', '2025-08-02 10:34:20'),
-(58, '0.00', '0.13', 'OFF', '2025-08-02 10:34:22', '2025-08-02 10:34:22'),
-(59, '0.00', '0.13', 'OFF', '2025-08-02 10:34:48', '2025-08-02 10:34:48'),
-(60, '0.00', '0.13', 'OFF', '2025-08-02 10:34:55', '2025-08-02 10:34:55'),
-(61, '0.00', '0.13', 'OFF', '2025-08-02 10:35:02', '2025-08-02 10:35:02'),
-(62, '0.00', '0.13', 'OFF', '2025-08-02 10:35:09', '2025-08-02 10:35:09'),
-(63, '0.00', '0.13', 'OFF', '2025-08-02 10:35:15', '2025-08-02 10:35:15'),
-(64, '0.00', '0.13', 'OFF', '2025-08-02 10:35:22', '2025-08-02 10:35:22'),
-(65, '0.00', '0.13', 'OFF', '2025-08-02 10:35:28', '2025-08-02 10:35:28'),
-(66, '0.00', '0.13', 'OFF', '2025-08-02 10:35:35', '2025-08-02 10:35:35'),
-(67, '0.00', '0.13', 'OFF', '2025-08-02 10:35:42', '2025-08-02 10:35:42'),
-(68, '0.00', '0.13', 'OFF', '2025-08-02 10:35:49', '2025-08-02 10:35:49'),
-(69, '0.00', '0.13', 'OFF', '2025-08-02 10:35:56', '2025-08-02 10:35:56'),
-(70, '0.00', '0.13', 'OFF', '2025-08-02 10:36:05', '2025-08-02 10:36:05'),
-(71, '0.00', '0.13', 'OFF', '2025-08-02 10:36:12', '2025-08-02 10:36:12'),
-(72, '0.00', '0.13', 'OFF', '2025-08-02 10:36:18', '2025-08-02 10:36:18'),
-(73, '0.00', '0.13', 'OFF', '2025-08-02 10:36:25', '2025-08-02 10:36:25'),
-(74, '0.00', '0.13', 'OFF', '2025-08-02 10:36:32', '2025-08-02 10:36:32'),
-(75, '0.00', '0.13', 'OFF', '2025-08-02 10:36:38', '2025-08-02 10:36:38'),
-(76, '0.00', '0.13', 'OFF', '2025-08-02 10:36:45', '2025-08-02 10:36:45'),
-(77, '0.00', '0.13', 'OFF', '2025-08-02 10:36:52', '2025-08-02 10:36:52'),
-(78, '0.00', '0.13', 'OFF', '2025-08-02 10:36:59', '2025-08-02 10:36:59'),
-(79, '0.00', '0.13', 'OFF', '2025-08-02 10:37:06', '2025-08-02 10:37:06'),
-(80, '0.00', '0.13', 'OFF', '2025-08-02 10:37:12', '2025-08-02 10:37:12'),
-(81, '0.00', '0.13', 'OFF', '2025-08-02 10:37:20', '2025-08-02 10:37:20'),
-(82, '0.00', '0.13', 'OFF', '2025-08-02 10:37:26', '2025-08-02 10:37:26'),
-(83, '0.00', '0.13', 'OFF', '2025-08-02 10:37:33', '2025-08-02 10:37:33'),
-(84, '0.00', '0.13', 'OFF', '2025-08-02 10:37:40', '2025-08-02 10:37:40'),
-(85, '0.00', '0.13', 'OFF', '2025-08-02 10:37:47', '2025-08-02 10:37:47'),
-(86, '0.00', '0.13', 'OFF', '2025-08-02 10:37:54', '2025-08-02 10:37:54'),
-(87, '0.00', '0.13', 'OFF', '2025-08-02 10:38:01', '2025-08-02 10:38:01'),
-(88, '0.00', '0.13', 'OFF', '2025-08-02 10:38:07', '2025-08-02 10:38:07'),
-(89, '0.00', '0.13', 'OFF', '2025-08-02 10:38:14', '2025-08-02 10:38:14'),
-(90, '0.00', '0.13', 'OFF', '2025-08-02 10:38:21', '2025-08-02 10:38:21'),
-(91, '0.00', '0.13', 'OFF', '2025-08-02 10:38:28', '2025-08-02 10:38:28'),
-(92, '0.00', '0.13', 'OFF', '2025-08-02 10:38:35', '2025-08-02 10:38:35'),
-(93, '0.00', '0.13', 'OFF', '2025-08-02 10:38:44', '2025-08-02 10:38:44'),
-(94, '0.00', '0.13', 'OFF', '2025-08-02 10:38:50', '2025-08-02 10:38:50'),
-(95, '0.00', '0.13', 'OFF', '2025-08-02 10:40:14', '2025-08-02 10:40:14'),
-(96, '0.00', '0.13', 'OFF', '2025-08-02 10:40:20', '2025-08-02 10:40:20'),
-(97, '0.00', '0.13', 'OFF', '2025-08-02 10:40:26', '2025-08-02 10:40:26'),
-(98, '0.00', '0.13', 'OFF', '2025-08-02 10:40:33', '2025-08-02 10:40:33'),
-(99, '0.00', '0.13', 'OFF', '2025-08-02 10:40:40', '2025-08-02 10:40:40'),
-(100, '0.00', '0.13', 'OFF', '2025-08-02 10:40:47', '2025-08-02 10:40:47'),
-(101, '0.00', '0.13', 'OFF', '2025-08-02 10:40:54', '2025-08-02 10:40:54'),
-(102, '0.00', '0.13', 'OFF', '2025-08-02 10:41:01', '2025-08-02 10:41:01'),
-(103, '0.00', '0.13', 'OFF', '2025-08-02 10:41:08', '2025-08-02 10:41:08'),
-(104, '0.00', '0.13', 'OFF', '2025-08-02 10:41:15', '2025-08-02 10:41:15'),
-(105, '0.00', '0.13', 'OFF', '2025-08-02 10:41:22', '2025-08-02 10:41:22'),
-(106, '0.00', '0.13', 'OFF', '2025-08-02 10:41:29', '2025-08-02 10:41:29'),
-(107, '0.00', '0.13', 'OFF', '2025-08-02 10:41:36', '2025-08-02 10:41:36'),
-(108, '0.00', '0.13', 'OFF', '2025-08-02 10:41:42', '2025-08-02 10:41:42'),
-(109, '0.00', '0.13', 'OFF', '2025-08-02 10:41:49', '2025-08-02 10:41:49'),
-(110, '0.00', '0.13', 'OFF', '2025-08-02 10:41:56', '2025-08-02 10:41:56'),
-(111, '0.00', '0.13', 'OFF', '2025-08-02 10:42:03', '2025-08-02 10:42:03'),
-(112, '0.00', '0.13', 'OFF', '2025-08-02 10:42:09', '2025-08-02 10:42:09'),
-(113, '0.00', '0.13', 'OFF', '2025-08-02 10:42:16', '2025-08-02 10:42:16'),
-(114, '0.00', '0.13', 'OFF', '2025-08-02 10:42:23', '2025-08-02 10:42:23'),
-(115, '0.00', '0.13', 'OFF', '2025-08-02 10:42:29', '2025-08-02 10:42:29'),
-(116, '0.00', '0.13', 'OFF', '2025-08-02 10:42:36', '2025-08-02 10:42:36'),
-(117, '0.00', '0.13', 'OFF', '2025-08-02 10:42:43', '2025-08-02 10:42:43'),
-(118, '0.00', '0.13', 'OFF', '2025-08-02 10:42:50', '2025-08-02 10:42:50'),
-(119, '0.00', '0.13', 'OFF', '2025-08-02 10:42:57', '2025-08-02 10:42:57'),
-(120, '0.00', '0.13', 'OFF', '2025-08-02 10:43:04', '2025-08-02 10:43:04'),
-(121, '0.00', '0.13', 'OFF', '2025-08-02 10:43:11', '2025-08-02 10:43:11'),
-(122, '0.00', '0.13', 'OFF', '2025-08-02 10:43:17', '2025-08-02 10:43:17'),
-(123, '0.00', '0.13', 'OFF', '2025-08-02 10:43:23', '2025-08-02 10:43:23'),
-(124, '0.00', '0.13', 'OFF', '2025-08-02 10:43:30', '2025-08-02 10:43:30'),
-(125, '0.00', '0.13', 'OFF', '2025-08-02 10:43:36', '2025-08-02 10:43:36'),
-(126, '0.00', '0.13', 'OFF', '2025-08-02 10:43:43', '2025-08-02 10:43:43'),
-(127, '0.00', '0.13', 'OFF', '2025-08-02 10:43:49', '2025-08-02 10:43:49'),
-(128, '0.00', '0.13', 'OFF', '2025-08-02 10:43:56', '2025-08-02 10:43:56'),
-(129, '0.00', '0.13', 'OFF', '2025-08-02 10:44:03', '2025-08-02 10:44:03'),
-(130, '0.00', '0.13', 'OFF', '2025-08-02 10:44:10', '2025-08-02 10:44:10'),
-(131, '0.00', '0.13', 'OFF', '2025-08-02 10:44:17', '2025-08-02 10:44:17'),
-(132, '0.00', '0.13', 'OFF', '2025-08-02 10:44:24', '2025-08-02 10:44:24'),
-(133, '0.00', '0.13', 'OFF', '2025-08-02 10:44:31', '2025-08-02 10:44:31'),
-(134, '0.00', '0.13', 'OFF', '2025-08-02 10:44:38', '2025-08-02 10:44:38'),
-(135, '0.00', '0.13', 'OFF', '2025-08-02 10:44:45', '2025-08-02 10:44:45'),
-(136, '0.00', '0.13', 'OFF', '2025-08-02 10:44:52', '2025-08-02 10:44:52'),
-(137, '0.00', '0.13', 'OFF', '2025-08-02 10:44:59', '2025-08-02 10:44:59'),
-(138, '17.97', '0.00', 'STANDBY', '2025-08-02 10:45:57', '2025-08-02 10:45:57'),
-(139, '8.50', '0.00', 'STANDBY', '2025-08-02 10:46:03', '2025-08-02 10:46:03'),
-(140, '6.82', '0.00', 'OFF', '2025-08-02 10:46:09', '2025-08-02 10:46:09'),
-(141, '36.18', '0.00', 'STANDBY', '2025-08-02 10:46:17', '2025-08-02 10:46:17'),
-(142, '39.92', '0.00', 'STANDBY', '2025-08-02 10:46:29', '2025-08-02 10:46:29'),
-(143, '51.08', '0.00', 'STANDBY', '2025-08-02 10:46:35', '2025-08-02 10:46:35'),
-(144, '4.05', '0.00', 'STANDBY', '2025-08-02 10:46:41', '2025-08-02 10:46:41'),
-(145, '40.22', '0.00', 'STANDBY', '2025-08-02 10:46:46', '2025-08-02 10:46:46'),
-(146, '144.47', '0.00', 'STANDBY', '2025-08-02 10:46:59', '2025-08-02 10:46:59'),
-(147, '35.05', '0.00', 'STANDBY', '2025-08-02 10:47:05', '2025-08-02 10:47:05'),
-(148, '138.84', '0.00', 'STANDBY', '2025-08-02 10:47:10', '2025-08-02 10:47:10'),
-(149, '135.01', '7.07', 'OFF', '2025-08-02 10:47:16', '2025-08-02 10:47:16'),
-(150, '113.90', '0.00', 'OFF', '2025-08-02 10:47:22', '2025-08-02 10:47:22'),
-(151, '114.80', '0.00', 'STANDBY', '2025-08-02 10:47:28', '2025-08-02 10:47:28'),
-(152, '115.19', '0.00', 'OFF', '2025-08-02 10:47:34', '2025-08-02 10:47:34'),
-(153, '115.63', '0.00', 'OFF', '2025-08-02 10:47:40', '2025-08-02 10:47:40'),
-(154, '114.27', '0.00', 'OFF', '2025-08-02 10:47:46', '2025-08-02 10:47:46'),
-(155, '115.14', '0.00', 'OFF', '2025-08-02 10:47:51', '2025-08-02 10:47:51'),
-(156, '0.00', '0.13', 'OFF', '2025-08-02 10:56:19', '2025-08-02 10:56:19'),
-(157, '0.00', '0.13', 'OFF', '2025-08-02 10:56:26', '2025-08-02 10:56:26'),
-(158, '0.00', '0.13', 'OFF', '2025-08-02 10:56:32', '2025-08-02 10:56:32'),
-(159, '0.00', '0.13', 'OFF', '2025-08-02 10:56:39', '2025-08-02 10:56:39'),
-(160, '0.00', '0.13', 'OFF', '2025-08-02 10:56:46', '2025-08-02 10:56:46'),
-(161, '0.00', '0.13', 'OFF', '2025-08-02 10:56:53', '2025-08-02 10:56:53'),
-(162, '0.00', '0.13', 'OFF', '2025-08-02 10:56:59', '2025-08-02 10:56:59'),
-(163, '0.00', '0.13', 'OFF', '2025-08-02 10:57:06', '2025-08-02 10:57:06'),
-(164, '0.00', '0.13', 'OFF', '2025-08-02 10:57:13', '2025-08-02 10:57:13'),
-(165, '0.00', '0.13', 'OFF', '2025-08-02 10:57:35', '2025-08-02 10:57:35'),
-(166, '0.00', '0.13', 'OFF', '2025-08-02 10:57:42', '2025-08-02 10:57:42'),
-(167, '0.00', '0.13', 'OFF', '2025-08-02 10:57:49', '2025-08-02 10:57:49'),
-(168, '0.00', '0.13', 'OFF', '2025-08-02 10:57:56', '2025-08-02 10:57:56'),
-(169, '0.00', '0.13', 'OFF', '2025-08-02 10:58:03', '2025-08-02 10:58:03'),
-(170, '0.00', '0.13', 'OFF', '2025-08-02 10:58:10', '2025-08-02 10:58:10'),
-(171, '0.00', '0.13', 'OFF', '2025-08-02 10:58:17', '2025-08-02 10:58:17');
+INSERT INTO `daily_water_summary` (`id`, `report_date`, `subuh_water`, `dzuhur_water`, `ashar_water`, `maghrib_water`, `isya_water`, `total_daily_water`, `non_shalat_water`, `grand_total_water`, `created_at`, `updated_at`) VALUES
+(1, '2025-08-07', '0.000', '0.000', '0.000', '0.000', '0.000', '0.000', '0.000', '0.000', '2025-08-07 15:46:25', '2025-08-07 15:46:25');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sensor_data`
+--
+
+CREATE TABLE `sensor_data` (
+  `id` int(11) NOT NULL,
+  `jarak_cm` decimal(10,2) NOT NULL COMMENT 'Jarak dalam centimeter',
+  `flow_rate` decimal(10,2) NOT NULL COMMENT 'Flow rate dalam L/min',
+  `status_kran` varchar(20) NOT NULL COMMENT 'Status kran: ON/OFF/STANDBY',
+  `total_volume` decimal(15,3) NOT NULL DEFAULT 0.000 COMMENT 'Total volume keseluruhan dalam liter',
+  `session_volume` decimal(15,3) NOT NULL DEFAULT 0.000 COMMENT 'Volume dalam sesi saat ini',
+  `current_shalat` varchar(20) DEFAULT NULL COMMENT 'Jadwal shalat aktif saat ini',
+  `shalat_water` decimal(15,3) DEFAULT 0.000 COMMENT 'Air yang digunakan dalam jadwal shalat aktif',
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `shalat_water_reports`
+--
+
+CREATE TABLE `shalat_water_reports` (
+  `id` int(11) NOT NULL,
+  `waktu_shalat` varchar(20) NOT NULL COMMENT 'Nama waktu shalat: Subuh/Dzuhur/Ashar/Maghrib/Isya',
+  `start_time` time NOT NULL COMMENT 'Waktu mulai jadwal shalat',
+  `end_time` time NOT NULL COMMENT 'Waktu selesai jadwal shalat',
+  `total_water` decimal(15,3) NOT NULL DEFAULT 0.000 COMMENT 'Total air digunakan dalam periode ini (liter)',
+  `usage_count` int(11) DEFAULT 0 COMMENT 'Jumlah kali penggunaan dalam periode ini',
+  `report_date` date NOT NULL COMMENT 'Tanggal laporan',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Trigger `shalat_water_reports`
+--
+DELIMITER $$
+CREATE TRIGGER `update_daily_summary_after_shalat_report` AFTER INSERT ON `shalat_water_reports` FOR EACH ROW BEGIN
+    INSERT INTO daily_water_summary (
+        report_date,
+        subuh_water,
+        dzuhur_water,
+        ashar_water,
+        maghrib_water,
+        isya_water
+    ) VALUES (
+        NEW.report_date,
+        CASE WHEN NEW.shalat_name = 'Subuh' THEN NEW.total_water ELSE 0 END,
+        CASE WHEN NEW.shalat_name = 'Dzuhur' THEN NEW.total_water ELSE 0 END,
+        CASE WHEN NEW.shalat_name = 'Ashar' THEN NEW.total_water ELSE 0 END,
+        CASE WHEN NEW.shalat_name = 'Maghrib' THEN NEW.total_water ELSE 0 END,
+        CASE WHEN NEW.shalat_name = 'Isya' THEN NEW.total_water ELSE 0 END
+    ) ON DUPLICATE KEY UPDATE
+        subuh_water = CASE WHEN NEW.shalat_name = 'Subuh' THEN NEW.total_water ELSE subuh_water END,
+        dzuhur_water = CASE WHEN NEW.shalat_name = 'Dzuhur' THEN NEW.total_water ELSE dzuhur_water END,
+        ashar_water = CASE WHEN NEW.shalat_name = 'Ashar' THEN NEW.total_water ELSE ashar_water END,
+        maghrib_water = CASE WHEN NEW.shalat_name = 'Maghrib' THEN NEW.total_water ELSE maghrib_water END,
+        isya_water = CASE WHEN NEW.shalat_name = 'Isya' THEN NEW.total_water ELSE isya_water END,
+        total_daily_water = subuh_water + dzuhur_water + ashar_water + maghrib_water + isya_water,
+        updated_at = CURRENT_TIMESTAMP;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `weekly_water_view`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `weekly_water_view` (
+`year_week` int(6)
+,`week_start` date
+,`week_end` date
+,`subuh_avg` decimal(19,7)
+,`dzuhur_avg` decimal(19,7)
+,`ashar_avg` decimal(19,7)
+,`maghrib_avg` decimal(19,7)
+,`isya_avg` decimal(19,7)
+,`weekly_avg` decimal(19,7)
+,`weekly_total` decimal(37,3)
+,`days_count` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `weekly_water_view`
+--
+DROP TABLE IF EXISTS `weekly_water_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`` SQL SECURITY DEFINER VIEW `weekly_water_view`  AS SELECT yearweek(`daily_water_summary`.`report_date`,1) AS `year_week`, `daily_water_summary`.`report_date`- interval weekday(`daily_water_summary`.`report_date`) day AS `week_start`, `daily_water_summary`.`report_date`- interval weekday(`daily_water_summary`.`report_date`) day + interval 6 day AS `week_end`, avg(`daily_water_summary`.`subuh_water`) AS `subuh_avg`, avg(`daily_water_summary`.`dzuhur_water`) AS `dzuhur_avg`, avg(`daily_water_summary`.`ashar_water`) AS `ashar_avg`, avg(`daily_water_summary`.`maghrib_water`) AS `maghrib_avg`, avg(`daily_water_summary`.`isya_water`) AS `isya_avg`, avg(`daily_water_summary`.`total_daily_water`) AS `weekly_avg`, sum(`daily_water_summary`.`total_daily_water`) AS `weekly_total`, count(0) AS `days_count` FROM `daily_water_summary` GROUP BY yearweek(`daily_water_summary`.`report_date`,1) ORDER BY yearweek(`daily_water_summary`.`report_date`,1) AS `DESCdesc` ASC  ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `log_data_sensor`
+-- Indeks untuk tabel `daily_water_summary`
 --
-ALTER TABLE `log_data_sensor`
+ALTER TABLE `daily_water_summary`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `report_date` (`report_date`),
+  ADD KEY `idx_report_date` (`report_date`);
+
+--
+-- Indeks untuk tabel `sensor_data`
+--
+ALTER TABLE `sensor_data`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `shalat_water_reports`
+--
+ALTER TABLE `shalat_water_reports`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_shalat_date` (`waktu_shalat`,`report_date`),
+  ADD KEY `idx_report_date` (`report_date`),
+  ADD KEY `idx_shalat_name` (`waktu_shalat`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT untuk tabel `log_data_sensor`
+-- AUTO_INCREMENT untuk tabel `daily_water_summary`
 --
-ALTER TABLE `log_data_sensor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
+ALTER TABLE `daily_water_summary`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `sensor_data`
+--
+ALTER TABLE `sensor_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `shalat_water_reports`
+--
+ALTER TABLE `shalat_water_reports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
